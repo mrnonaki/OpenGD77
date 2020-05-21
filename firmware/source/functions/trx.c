@@ -162,12 +162,12 @@ const uint16_t TRX_DCSECCBits[512] = {
 	0x014, 0x461, 0x48b, 0x0fe, 0x55f, 0x12a, 0x1c0, 0x5b5,
 	0x6f7, 0x282, 0x268, 0x61d, 0x3bc, 0x7c9, 0x723, 0x356,
 };
-static const int BAND_VHF_MIN 	= 14400000;
-static const int BAND_VHF_MAX 	= 14800000;
-static const int BAND_222_MIN 	= 22200000;
-static const int BAND_222_MAX 	= 22500000;
-static const int BAND_UHF_MIN 	= 42000000;
-static const int BAND_UHF_MAX 	= 45000000;
+static const int BAND_VHF_MIN 	= 13400000;
+static const int BAND_VHF_MAX 	= 17400000;
+static const int BAND_222_MIN 	= 20000000;
+static const int BAND_222_MAX 	= 26000000;
+static const int BAND_UHF_MIN 	= 40000000;
+static const int BAND_UHF_MAX 	= 52000000;
 
 enum CAL_DEV_TONE_INDEXES { CAL_DEV_DTMF = 0, CAL_DEV_TONE = 1, CAL_DEV_CTCSS_WIDE	= 2,CAL_DEV_CTCSS_NARROW = 3,CAL_DEV_DCS_WIDE = 4, CAL_DEV_DCS_NARROW	= 5};
 
