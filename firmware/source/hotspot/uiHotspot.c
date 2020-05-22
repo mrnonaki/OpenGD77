@@ -381,12 +381,12 @@ int menuHotspotMode(uiEvent_t *ev, bool isFirstRun)
 
 		if (freq_tx == 0)
 		{
-			freq_tx = 43000000;
+			freq_tx = 14623750;
 		}
 
 		if (freq_rx == 0)
 		{
-			freq_rx = 43000000;
+			freq_rx = 14623750;
 		}
 
 		tx_delay = 0;
@@ -1680,10 +1680,17 @@ static uint8_t setFreq(volatile const uint8_t* data, uint8_t length)
 	}
 
 	// satellite frequencies banned frequency ranges
-	const int BAN1_MIN  = 14580000;
-	const int BAN1_MAX  = 14600000;
-	const int BAN2_MIN  = 43500000;
-	const int BAN2_MAX  = 43800000;
+	// const int BAN1_MIN  = 14580000;
+	// const int BAN1_MAX  = 14600000;
+	// Thailand amateur hotspot frequencies banned frequency ranges
+	const int BAN1_MIN  = 14400000;
+	const int BAN1_MAX  = 14553750;
+	const int BAN2_MIN  = 14561250;
+	const int BAN2_MAX  = 14620000;
+	const int BAN3_MIN  = 14625000;
+	const int BAN3_MAX  = 14700000;
+	const int BAN4_MIN  = 43500000;
+	const int BAN4_MAX  = 43800000;
 	uint32_t fRx, fTx;
 
 	hotspotState = HOTSPOT_STATE_INITIALISE;
@@ -1708,7 +1715,7 @@ static uint8_t setFreq(volatile const uint8_t* data, uint8_t length)
 	fRx = (data[1U] << 0 | data[2U] << 8  | data[3U] << 16 | data[4U] << 24) / 10;
 	fTx = (data[5U] << 0 | data[6U] << 8  | data[7U] << 16 | data[8U] << 24) / 10;
 
-	if ((fTx >= BAN1_MIN && fTx <= BAN1_MAX) || (fTx >= BAN2_MIN && fTx <= BAN2_MAX))
+	if ((fTx >= BAN1_MIN && fTx <= BAN1_MAX) || (fTx >= BAN2_MIN && fTx <= BAN2_MAX) || (fTx >= BAN3_MIN && fTx <= BAN3_MAX) || (fTx >= BAN4_MIN && fTx <= BAN4_MAX))
 	{
 		return 4U;// invalid frequency
 	}
